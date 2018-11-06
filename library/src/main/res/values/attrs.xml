@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="numColumns" format="integer" />
+    <attr name="numRows" format="integer" />
+    <attr name="verticalSpacing" format="dimension" />
+    <attr name="horizontalSpacing" format="dimension" />
+
+    <declare-styleable name="NestedGridView">
+        <attr name="numColumns" />
+        <attr name="verticalSpacing" />
+        <attr name="horizontalSpacing" />
+    </declare-styleable>
+
+    <declare-styleable name="PagerGridView">
+        <attr name="numColumns" />
+        <attr name="numRows" />
+        <attr name="verticalSpacing" />
+        <attr name="horizontalSpacing" />
+    </declare-styleable>
+
+    <declare-styleable name="TabRadioButton">
+        <attr name="text" format="string|reference" />
+        <attr name="checked" format="boolean" />
+        <attr name="autoFit" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="NoticeBoard">
+        <attr name="textColor" format="color" />
+        <attr name="textSize" format="integer" />
+    </declare-styleable>
+</resources>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.PagerGridViewActivity">
+
+    <com.xinzy.component.java.widget.PagerGridView
+        android:id="@+id/adapterGridView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        app:horizontalSpacing="15dp"
+        app:numColumns="3"
+        app:numRows="2"
+        app:verticalSpacing="15dp" />
+
+    <TextView
+        android:id="@+id/pageText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="页码"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:background="#F0F0F0"
+        android:gravity="center"
+        android:text="分割线" />
+
+    <com.xinzy.component.java.widget.PagerGridView
+        android:id="@+id/normalGridView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        app:horizontalSpacing="15dp"
+        app:numColumns="2"
+        app:numRows="4"
+        app:verticalSpacing="15dp">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onAddOne"
+            android:text="Add one" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onDelOne"
+            android:text="Delete one" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onReplace"
+            android:text="Replace" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onClear"
+            android:text="Clear" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onPrevPage"
+            android:text="Prev Page" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onNextPage"
+            android:text="Next Page" />
+    </com.xinzy.component.java.widget.PagerGridView>
+
+</LinearLayout>

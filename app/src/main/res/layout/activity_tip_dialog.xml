@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="12dp"
+    tools:context=".activity.TipDialogActivity">
+
+    <com.xinzy.component.kotlin.widget.RadiusButton
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:text="进度框"
+        android:onClick="onProgress"
+        android:textColor="#F00"
+        app:rippleEnabled="true"
+        app:rippleColor="@color/colorAccent"
+        app:borderWidth="1dp"
+        app:borderColor="@color/colorPrimary"
+        app:solidColor="#FFF"/>
+
+    <com.xinzy.component.kotlin.widget.RadiusButton
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:text="成功提醒"
+        android:layout_marginTop="12dp"
+        android:onClick="onSuccess"
+        android:textColor="#F00"
+        app:rippleEnabled="true"
+        app:rippleColor="@color/colorAccent"
+        app:borderWidth="1dp"
+        app:borderColor="@color/colorPrimary"
+        app:solidColor="#FFF"/>
+
+    <com.xinzy.component.kotlin.widget.RadiusButton
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:text="提示"
+        android:layout_marginTop="12dp"
+        android:onClick="onInfo"
+        android:textColor="#F00"
+        app:rippleEnabled="true"
+        app:rippleColor="@color/colorAccent"
+        app:borderWidth="1dp"
+        app:borderColor="@color/colorPrimary"
+        app:solidColor="#FFF"/>
+
+    <com.xinzy.component.kotlin.widget.RadiusButton
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:text="错误啦"
+        android:layout_marginTop="12dp"
+        android:onClick="onError"
+        android:textColor="#F00"
+        app:rippleEnabled="true"
+        app:rippleColor="@color/colorAccent"
+        app:borderWidth="1dp"
+        app:borderColor="@color/colorPrimary"
+        app:solidColor="#FFF"/>
+
+    <com.xinzy.component.kotlin.widget.RadiusButton
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:text="简单提醒一句"
+        android:layout_marginTop="12dp"
+        android:onClick="onTip"
+        android:textColor="#F00"
+        app:rippleEnabled="true"
+        app:rippleColor="@color/colorAccent"
+        app:borderWidth="1dp"
+        app:borderColor="@color/colorPrimary"
+        app:solidColor="#FFF"/>
+
+</LinearLayout>

@@ -21,7 +21,7 @@ import com.xinzy.component.R
  * Created by yang.yang on 2018/8/3.
  */
 
-class ActionSheet private constructor(context: Context) : Dialog(context, R.style.Theme_Light_NoTitle_Dialog), View.OnClickListener {
+class ActionSheet private constructor(context: Context) : Dialog(context, R.style.Component_Theme_Light_NoTitle_Dialog), View.OnClickListener {
 
     private lateinit var mContainer: LinearLayout
 
@@ -56,14 +56,16 @@ class ActionSheet private constructor(context: Context) : Dialog(context, R.styl
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
 
-        window.decorView.setPadding(0, 0, 0, 0)
-        window.setBackgroundDrawable(ColorDrawable(0))
-        val lp = window.attributes
-        lp.width = WindowManager.LayoutParams.MATCH_PARENT
-        lp.height = WindowManager.LayoutParams.WRAP_CONTENT
-        window.attributes = lp
-        window.setGravity(Gravity.BOTTOM)
-        window.setWindowAnimations(R.style.Animation_Bottom)
+        window?.let {
+            it.decorView.setPadding(0, 0, 0, 0)
+            it.setBackgroundDrawable(ColorDrawable(0))
+            val lp = it.attributes
+            lp.width = WindowManager.LayoutParams.MATCH_PARENT
+            lp.height = WindowManager.LayoutParams.WRAP_CONTENT
+            it.attributes = lp
+            it.setGravity(Gravity.BOTTOM)
+            it.setWindowAnimations(R.style.Component_Animation_Bottom)
+        }
 
         setCanceledOnTouchOutside(true)
 

@@ -24,7 +24,7 @@ class MultiAdapterActivity : AppCompatActivity() {
 
         val adapter = MultiAdapter()
         adapter.registerProvider(TYPE_TAG, TagProvider()).registerProvider(TYPE_IMAGE, ImageProvider())
-        adapter.setOnItemClickListener { itemView, position -> toast("item click $position") }
+        adapter.setOnItemClickListener { _, position -> toast("item click $position") }
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
 

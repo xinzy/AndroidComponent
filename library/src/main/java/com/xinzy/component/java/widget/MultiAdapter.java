@@ -234,7 +234,7 @@ public class MultiAdapter extends RecyclerView.Adapter<MultiAdapter.MultiViewHol
         protected void onViewRecycled(MultiViewHolder holder) {}
 
         protected boolean canClicked() {
-            return false;
+            return true;
         }
 
         protected abstract void onBindViewHolder(@NonNull MultiViewHolder viewHolder, @NonNull T data, int position);

@@ -6,6 +6,33 @@
     <attr name="verticalSpacing" format="dimension" />
     <attr name="horizontalSpacing" format="dimension" />
 
+    <attr name="radius" format="dimension" />
+    <attr name="radiusLT" format="dimension" />
+    <attr name="radiusRT" format="dimension" />
+    <attr name="radiusLB" format="dimension" />
+    <attr name="radiusRB" format="dimension" />
+
+    <attr name="borderWidth" format="dimension" />
+    <attr name="borderColor" format="color" />
+    <attr name="solidColor" format="color" />
+
+    <attr name="pressedBorderWidth" format="dimension" />
+    <attr name="pressedBorderColor" format="color" />
+    <attr name="pressedSolidColor" format="color" />
+    <attr name="pressedTextColor" format="color" />
+
+    <attr name="disableBorderWidth" format="dimension" />
+    <attr name="disableBorderColor" format="color" />
+    <attr name="disableSolidColor" format="color" />
+    <attr name="disableTextColor" format="color" />
+
+    <attr name="selectedBorderWidth" format="dimension" />
+    <attr name="selectedBorderColor" format="color" />
+    <attr name="selectedSolidColor" format="color" />
+    <attr name="selectedTextColor" format="color" />
+
+    <attr name="rippleColor" format="color" />
+
     <declare-styleable name="NestedGridView">
         <attr name="numColumns" />
         <attr name="verticalSpacing" />
@@ -17,6 +44,79 @@
         <attr name="numRows" />
         <attr name="verticalSpacing" />
         <attr name="horizontalSpacing" />
+    </declare-styleable>
+
+    <declare-styleable name="RadiusTextView">
+
+        <attr name="radius" />
+        <attr name="radiusLT" />
+        <attr name="radiusRT" />
+        <attr name="radiusLB" />
+        <attr name="radiusRB" />
+
+        <attr name="borderWidth" />
+        <attr name="borderColor" />
+        <attr name="solidColor" />
+        <attr name="android:textColor" />
+
+        <attr name="pressedBorderWidth" />
+        <attr name="pressedBorderColor" />
+        <attr name="pressedSolidColor" />
+        <attr name="pressedTextColor" />
+
+        <attr name="disableBorderWidth" />
+        <attr name="disableBorderColor" />
+        <attr name="disableSolidColor" />
+        <attr name="disableTextColor" />
+
+        <attr name="selectedBorderWidth" />
+        <attr name="selectedBorderColor" />
+        <attr name="selectedSolidColor" />
+        <attr name="selectedTextColor" />
+
+        <attr name="rippleColor" />
+        <attr name="rippleEnabled" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="RadiusLinearLayout">
+        <attr name="radius" />
+        <attr name="radiusLT" />
+        <attr name="radiusRT" />
+        <attr name="radiusLB" />
+        <attr name="radiusRB" />
+
+        <attr name="borderWidth" />
+        <attr name="borderColor" />
+        <attr name="solidColor" />
+    </declare-styleable>
+
+    <declare-styleable name="RadiusFrameLayout">
+        <attr name="radius" />
+        <attr name="radiusLT" />
+        <attr name="radiusRT" />
+        <attr name="radiusLB" />
+        <attr name="radiusRB" />
+
+        <attr name="borderWidth" />
+        <attr name="borderColor" />
+        <attr name="solidColor" />
+    </declare-styleable>
+
+    <declare-styleable name="RadiusRelativeLayout">
+        <attr name="radius" />
+        <attr name="radiusLT" />
+        <attr name="radiusRT" />
+        <attr name="radiusLB" />
+        <attr name="radiusRB" />
+
+        <attr name="borderWidth" />
+        <attr name="borderColor" />
+        <attr name="solidColor" />
+    </declare-styleable>
+
+    <declare-styleable name="LoadingView">
+        <attr name="size" format="dimension" />
+        <attr name="android:color" />
     </declare-styleable>
 
     <declare-styleable name="TabRadioButton">

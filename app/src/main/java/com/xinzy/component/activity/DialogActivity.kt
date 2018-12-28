@@ -20,7 +20,7 @@ class DialogActivity : AppCompatActivity() {
     }
 
     fun onSingleConfirm(v: View) {
-        ConfirmDialog.Builder(this).cancelable(false).title("晚上吃什么").message("吃面").ok("好的")
+        ConfirmDialog.Builder(this).cancelable(false).title("晚上吃什么").message("吃面").okText("好的")
                 .listener(object : ConfirmDialog.OnButtonClickListener {
                     override fun onClick(dialog: ConfirmDialog, which: Int) {
                         toast("ok")
@@ -29,7 +29,7 @@ class DialogActivity : AppCompatActivity() {
     }
 
     fun onDoubleConfirm(v: View) {
-        ConfirmDialog.Builder(this).cancelable(false).title("晚上吃什么").message("吃面").ok("好的").cancel("算了")
+        ConfirmDialog.Builder(this).cancelable(false).title("晚上吃什么").message("吃面").okText("好的").cancelText("算了")
                 .listener(object : ConfirmDialog.OnButtonClickListener {
                     override fun onClick(dialog: ConfirmDialog, which: Int) {
                         if (which == ConfirmDialog.BUTTON_OK) {

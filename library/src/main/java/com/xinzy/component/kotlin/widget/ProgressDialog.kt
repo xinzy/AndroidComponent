@@ -7,12 +7,10 @@ import android.os.Bundle
 import android.view.Window
 import android.view.animation.Animation
 import android.view.animation.RotateAnimation
-import android.widget.ImageView
 import com.xinzy.component.R
+import kotlinx.android.synthetic.main.dialog_progress.*
 
-class ProgressDialog(context: Context?) : Dialog(context) {
-
-    private lateinit var mImageView: ImageView
+class ProgressDialog(context: Context) : Dialog(context) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +19,6 @@ class ProgressDialog(context: Context?) : Dialog(context) {
 
         this.window?.setBackgroundDrawable(ColorDrawable(0))
         setCanceledOnTouchOutside(false)
-        mImageView = findViewById(R.id.progressImage)
     }
 
     override fun onStart() {
@@ -29,7 +26,7 @@ class ProgressDialog(context: Context?) : Dialog(context) {
         val animation = RotateAnimation(0f, -360f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f)
         animation.duration = 1000
         animation.repeatCount = Integer.MAX_VALUE
-        mImageView.startAnimation(animation)
+        progressImage.startAnimation(animation)
     }
 
     override fun show() {

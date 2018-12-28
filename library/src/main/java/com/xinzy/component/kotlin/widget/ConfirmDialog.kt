@@ -1,6 +1,5 @@
 package com.xinzy.component.kotlin.widget
 
-
 import android.app.Dialog
 import android.content.Context
 import android.graphics.drawable.ColorDrawable
@@ -8,8 +7,8 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
 import android.view.Window
-import android.widget.TextView
 import com.xinzy.component.R
+import kotlinx.android.synthetic.main.dialog_confirm.*
 
 class ConfirmDialog private constructor(context: Context, private val mTitle: String?, private val mMessage: String?,
                                         private val mOk: String?, private val mCancel: String?, private val mCancelable: Boolean,
@@ -21,37 +20,32 @@ class ConfirmDialog private constructor(context: Context, private val mTitle: St
         setContentView(R.layout.dialog_confirm)
 
         window?.let {
-            window.setBackgroundDrawable(ColorDrawable(0))
-            val lp = window.attributes
+            it.setBackgroundDrawable(ColorDrawable(0))
+            val lp = it.attributes
             lp.width = (context.resources.displayMetrics.widthPixels * 0.8f).toInt()
-            window.attributes = lp
+            it.attributes = lp
         }
         setCanceledOnTouchOutside(false)
         if (!mCancelable) {
             setCancelable(false)
         }
 
-        val titleText = findViewById<TextView>(R.id.dialogTitle)
-        val contentText = findViewById<TextView>(R.id.dialogContent)
-        val okText = findViewById<TextView>(R.id.dialogOk)
-        val cancelText = findViewById<TextView>(R.id.dialogCancel)
-
         if (!TextUtils.isEmpty(mTitle)) {
-            titleText.text = mTitle
+            dialogTitle.text = mTitle
         } else {
-            titleText.visibility = View.GONE
+            dialogTitle.visibility = View.GONE
         }
-        contentText.text = mMessage
-        okText.text = mOk
+        dialogContent.text = mMessage
+        dialogOk.text = mOk
         if (TextUtils.isEmpty(mCancel)) {
-            cancelText.visibility = View.GONE
-            findViewById<View>(R.id.dialogDivide).visibility = View.GONE
+            dialogCancel.visibility = View.GONE
+            dialogDivide.visibility = View.GONE
         } else {
-            cancelText.text = mCancel
+            dialogCancel.text = mCancel
         }
 
-        okText.setOnClickListener(this)
-        cancelText.setOnClickListener(this)
+        dialogOk.setOnClickListener(this)
+        dialogCancel.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -102,12 +96,12 @@ class ConfirmDialog private constructor(context: Context, private val mTitle: St
             return this
         }
 
-        fun cancel(cancel: String): Builder {
+        fun cancelText(cancel: String): Builder {
             this.cancel = cancel
             return this
         }
 
-        fun ok(ok: String): Builder {
+        fun okText(ok: String): Builder {
             this.ok = ok
             return this
         }

@@ -7,10 +7,12 @@
     <attr name="horizontalSpacing" format="dimension" />
 
     <attr name="radius" format="dimension" />
-    <attr name="radiusLT" format="dimension" />
-    <attr name="radiusRT" format="dimension" />
-    <attr name="radiusLB" format="dimension" />
-    <attr name="radiusRB" format="dimension" />
+    <attr name="direction">
+        <flag name="TopLeft" value="1" />
+        <flag name="TopRight" value="2" />
+        <flag name="BottomLeft" value="4" />
+        <flag name="BottomRight" value="8" />
+    </attr>
 
     <attr name="borderWidth" format="dimension" />
     <attr name="borderColor" format="color" />
@@ -49,10 +51,7 @@
     <declare-styleable name="RadiusTextView">
 
         <attr name="radius" />
-        <attr name="radiusLT" />
-        <attr name="radiusRT" />
-        <attr name="radiusLB" />
-        <attr name="radiusRB" />
+        <attr name="direction" />
 
         <attr name="borderWidth" />
         <attr name="borderColor" />
@@ -80,10 +79,7 @@
 
     <declare-styleable name="RadiusLinearLayout">
         <attr name="radius" />
-        <attr name="radiusLT" />
-        <attr name="radiusRT" />
-        <attr name="radiusLB" />
-        <attr name="radiusRB" />
+        <attr name="direction" />
 
         <attr name="borderWidth" />
         <attr name="borderColor" />
@@ -92,10 +88,7 @@
 
     <declare-styleable name="RadiusFrameLayout">
         <attr name="radius" />
-        <attr name="radiusLT" />
-        <attr name="radiusRT" />
-        <attr name="radiusLB" />
-        <attr name="radiusRB" />
+        <attr name="direction" />
 
         <attr name="borderWidth" />
         <attr name="borderColor" />
@@ -104,14 +97,21 @@
 
     <declare-styleable name="RadiusRelativeLayout">
         <attr name="radius" />
-        <attr name="radiusLT" />
-        <attr name="radiusRT" />
-        <attr name="radiusLB" />
-        <attr name="radiusRB" />
+        <attr name="direction" />
 
         <attr name="borderWidth" />
         <attr name="borderColor" />
         <attr name="solidColor" />
+    </declare-styleable>
+
+    <declare-styleable name="RadiusImageView">
+        <attr name="radius" />
+        <attr name="direction" />
+
+        <attr name="borderWidth" />
+        <attr name="borderColor" />
+
+        <attr name="isCircle" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="LoadingView">

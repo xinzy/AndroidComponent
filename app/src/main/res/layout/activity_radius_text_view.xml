@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="24dp"
-        tools:context=".activity.RoundTextViewActivity">
+        tools:context=".activity.RadiusTextViewActivity">
 
         <com.xinzy.component.kotlin.widget.RadiusTextView
             android:layout_width="240dp"
@@ -64,14 +64,15 @@
                 android:layout_gravity="center_horizontal"
                 android:text="左上"
                 android:textColor="#666"
+                app:direction="TopLeft"
+                app:radius="8dp"
                 app:rippleColor="@color/colorAccent"
                 app:borderColor="#FF8447"
                 app:borderWidth="1dp"
                 app:pressedBorderColor="#FF6621"
                 app:pressedBorderWidth="1dp"
                 app:pressedSolidColor="#9CC5F0"
-                app:pressedTextColor="#F00"
-                app:radiusLT="8dp"/>
+                app:pressedTextColor="#F00"/>
 
             <com.xinzy.component.kotlin.widget.RadiusButton
                 android:layout_width="72dp"
@@ -80,6 +81,8 @@
                 android:layout_marginStart="80dp"
                 android:text="右上"
                 android:textColor="#666"
+                app:direction="TopRight"
+                app:radius="8dp"
                 app:rippleColor="@color/colorAccent"
                 app:borderColor="#FF8447"
                 app:borderWidth="1dp"
@@ -87,8 +90,7 @@
                 app:pressedBorderWidth="1dp"
                 app:pressedSolidColor="#9CC5F0"
                 app:pressedTextColor="#F00"
-                app:rippleEnabled="true"
-                app:radiusRT="8dp"/>
+                app:rippleEnabled="true"/>
 
             <com.xinzy.component.kotlin.widget.RadiusButton
                 android:layout_width="72dp"
@@ -97,10 +99,11 @@
                 android:layout_marginTop="80dp"
                 android:text="左下"
                 android:textColor="#666"
+                app:direction="BottomLeft"
+                app:radius="8dp"
                 app:rippleColor="@color/colorAccent"
                 app:borderColor="#FF8447"
-                app:borderWidth="1dp"
-                app:radiusLB="8dp"/>
+                app:borderWidth="1dp"/>
 
             <com.xinzy.component.kotlin.widget.RadiusButton
                 android:layout_width="72dp"
@@ -110,10 +113,11 @@
                 android:layout_marginTop="80dp"
                 android:text="右下"
                 android:textColor="#666"
+                app:direction="BottomRight"
+                app:radius="8dp"
                 app:rippleColor="@color/colorAccent"
                 app:borderColor="#FF8447"
-                app:borderWidth="1dp"
-                app:radiusRB="8dp" />
+                app:borderWidth="1dp" />
         </FrameLayout>
 
         <com.xinzy.component.kotlin.widget.RadiusButton
@@ -123,6 +127,7 @@
             android:text="测试ripple"
             android:textColor="#666"
             android:layout_marginTop="12dp"
+            app:direction="TopLeft|TopRight"
             app:rippleEnabled="true"
             app:rippleColor="@color/colorPrimaryDark"
             app:borderColor="#FF8447"

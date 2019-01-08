@@ -21,7 +21,8 @@ class MainActivity : AppCompatActivity() {
             Item("Tab", "Tab"),
             Item("MultiAdapter", "MultiAdapter"),
             Item("RadiusTextView", "RadiusTextView"),
-            Item("TipDialog", "TipDialog")
+            Item("TipDialog", "TipDialog"),
+            Item("RadiusImageView", "RadiusImageView")
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

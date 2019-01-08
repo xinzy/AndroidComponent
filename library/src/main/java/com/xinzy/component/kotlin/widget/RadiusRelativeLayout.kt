@@ -7,6 +7,10 @@ import android.util.AttributeSet
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import com.xinzy.component.R
+import com.xinzy.component.kotlin.widget.util.isBottomLeft
+import com.xinzy.component.kotlin.widget.util.isBottomRight
+import com.xinzy.component.kotlin.widget.util.isTopLeft
+import com.xinzy.component.kotlin.widget.util.isTopRight
 
 class RadiusRelativeLayout : RelativeLayout {
     constructor(context: Context) : this(context, null)
@@ -18,25 +22,25 @@ class RadiusRelativeLayout : RelativeLayout {
         val strokeColor = ta.getColor(R.styleable.RadiusRelativeLayout_borderColor, 0)
         val color = ta.getColor(R.styleable.RadiusRelativeLayout_solidColor, 0)
         val radius = ta.getDimension(R.styleable.RadiusRelativeLayout_radius, 0f)
+        val direction = ta.getInt(R.styleable.RadiusRelativeLayout_direction, 0)
 
-        val radiusLT = ta.getDimension(R.styleable.RadiusRelativeLayout_radiusLT, 0f)
-        val radiusRT = ta.getDimension(R.styleable.RadiusRelativeLayout_radiusRT, 0f)
-        val radiusLB = ta.getDimension(R.styleable.RadiusRelativeLayout_radiusLB, 0f)
-        val radiusRB = ta.getDimension(R.styleable.RadiusRelativeLayout_radiusRB, 0f)
-        val radii = floatArrayOf(radiusLT, radiusLT, radiusRT, radiusRT, radiusRB, radiusRB, radiusLB, radiusLB)
+        val radii: FloatArray? = if (direction == 0) null else {
+            val tl = if (isTopLeft(direction)) radius else 0f
+            val tr = if (isTopRight(direction)) radius else 0f
+            val bl = if (isBottomLeft(direction)) radius else 0f
+            val br = if (isBottomRight(direction)) radius else 0f
+            floatArrayOf(tl, tl, tr, tr, br, br, bl, bl)
+        }
 
         setBackground(color, radius, strokeWidth, strokeColor, radii)
 
         ta.recycle()
     }
 
-    fun setBackground(color: Int, radius: Float, strokeWidth: Int = 0, strokeColor: Int = 0, radii: FloatArray = floatArrayOf()) {
+    fun setBackground(color: Int, radius: Float, strokeWidth: Int = 0, strokeColor: Int = 0, radii: FloatArray? = null) {
         val drawable = GradientDrawable()
-        if (radius == 0f) {
-            if (radii.size == 8) drawable.cornerRadii = radii
-        } else {
-            drawable.cornerRadius = radius
-        }
+        if (radii != null && radii.size == 8) drawable.cornerRadii = radii
+        else if (radius != 0f) drawable.cornerRadius = radius
         drawable.setColor(color)
         if (strokeWidth != 0 && strokeColor != 0) drawable.setStroke(strokeWidth, strokeColor)
 

@@ -5,10 +5,10 @@ import android.support.v7.app.AppCompatActivity
 import com.xinzy.component.R
 
 
-class RoundTextViewActivity : AppCompatActivity() {
+class RadiusTextViewActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_round_text_view)
+        setContentView(R.layout.activity_radius_text_view)
     }
 }

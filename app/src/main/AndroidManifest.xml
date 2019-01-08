@@ -18,6 +18,7 @@
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -28,8 +29,9 @@
         <activity android:name=".activity.DialogActivity" />
         <activity android:name=".activity.TabActivity" />
         <activity android:name=".activity.MultiAdapterActivity" />
-        <activity android:name=".activity.RoundTextViewActivity" />
+        <activity android:name=".activity.RadiusTextViewActivity" />
         <activity android:name=".activity.TipDialogActivity" />
+        <activity android:name=".activity.RadiusImageViewActivity"></activity>
     </application>
 
 </manifest>

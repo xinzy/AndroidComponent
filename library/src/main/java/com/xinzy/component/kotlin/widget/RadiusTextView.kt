@@ -9,6 +9,10 @@ import android.support.v4.view.ViewCompat
 import android.support.v7.widget.AppCompatTextView
 import android.util.AttributeSet
 import com.xinzy.component.R
+import com.xinzy.component.kotlin.widget.util.isBottomLeft
+import com.xinzy.component.kotlin.widget.util.isBottomRight
+import com.xinzy.component.kotlin.widget.util.isTopLeft
+import com.xinzy.component.kotlin.widget.util.isTopRight
 
 open class RadiusTextView : AppCompatTextView {
 
@@ -72,11 +76,15 @@ open class RadiusTextView : AppCompatTextView {
     private fun parseBackground(ta: TypedArray): Drawable {
 
         val radius = ta.getDimension(R.styleable.RadiusTextView_radius, 0f)
-        val radiusLT = ta.getDimension(R.styleable.RadiusTextView_radiusLT, 0f)
-        val radiusRT = ta.getDimension(R.styleable.RadiusTextView_radiusRT, 0f)
-        val radiusLB = ta.getDimension(R.styleable.RadiusTextView_radiusLB, 0f)
-        val radiusRB = ta.getDimension(R.styleable.RadiusTextView_radiusRB, 0f)
-        val radii = floatArrayOf(radiusLT, radiusLT, radiusRT, radiusRT, radiusRB, radiusRB, radiusLB, radiusLB)
+        val direction = ta.getInt(R.styleable.RadiusTextView_direction, 0)
+
+        val radii: FloatArray? = if (direction == 0) null else {
+            val tl = if (isTopLeft(direction)) radius else 0f
+            val tr = if (isTopRight(direction)) radius else 0f
+            val bl = if (isBottomLeft(direction)) radius else 0f
+            val br = if (isBottomRight(direction)) radius else 0f
+            floatArrayOf(tl, tl, tr, tr, br, br, bl, bl)
+        }
 
         val defaultDrawable = generateDrawable(radius, radii, ta.getDimensionPixelSize(R.styleable.RadiusTextView_borderWidth, 0),
                 ta.getColor(R.styleable.RadiusTextView_borderColor, 0), ta.getColor(R.styleable.RadiusTextView_solidColor, 0))
@@ -98,11 +106,11 @@ open class RadiusTextView : AppCompatTextView {
         return drawable
     }
 
-    private fun generateDrawable(radius: Float, radii: FloatArray, stokeWidth: Int, stokeColor: Int, solidColor: Int): GradientDrawable? {
+    private fun generateDrawable(radius: Float, radii: FloatArray?, stokeWidth: Int, stokeColor: Int, solidColor: Int): GradientDrawable? {
         if (stokeWidth == 0 && stokeColor == 0 && solidColor == 0) return null
         val drawable = GradientDrawable()
-        if (radius != 0f) drawable.cornerRadius = radius
-        else drawable.cornerRadii = radii
+        if (radii != null && radii.size == 8) drawable.cornerRadii = radii
+        else if (radius != 0f) drawable.cornerRadius = radius
 
         drawable.setStroke(stokeWidth, stokeColor)
         drawable.setColor(solidColor)

@@ -8,7 +8,7 @@ import android.text.TextUtils
 import android.view.View
 import android.view.Window
 import com.xinzy.component.R
-import kotlinx.android.synthetic.main.dialog_confirm.*
+import kotlinx.android.synthetic.main.c_dialog_confirm.*
 
 class ConfirmDialog private constructor(context: Context, private val mTitle: String?, private val mMessage: String?,
                                         private val mOk: String?, private val mCancel: String?, private val mCancelable: Boolean,
@@ -17,7 +17,7 @@ class ConfirmDialog private constructor(context: Context, private val mTitle: St
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
-        setContentView(R.layout.dialog_confirm)
+        setContentView(R.layout.c_dialog_confirm)
 
         window?.let {
             it.setBackgroundDrawable(ColorDrawable(0))

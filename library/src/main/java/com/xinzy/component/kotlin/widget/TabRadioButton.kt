@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.Checkable
 import android.widget.RelativeLayout
 import com.xinzy.component.R
-import kotlinx.android.synthetic.main.view_tab_radio_button.view.*
+import kotlinx.android.synthetic.main.c_view_tab_radio_button.view.*
 
 class TabRadioButton : RelativeLayout, Checkable {
     private var mChecked = false
@@ -16,7 +16,7 @@ class TabRadioButton : RelativeLayout, Checkable {
 
     constructor(context: Context?) : this(context, null)
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {
-        LayoutInflater.from(context).inflate(R.layout.view_tab_radio_button, this)
+        LayoutInflater.from(context).inflate(R.layout.c_view_tab_radio_button, this)
 
         val ta = context!!.obtainStyledAttributes(attrs, R.styleable.TabRadioButton)
 

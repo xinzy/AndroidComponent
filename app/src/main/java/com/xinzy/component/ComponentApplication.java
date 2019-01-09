@@ -10,6 +10,5 @@ public class ComponentApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
     }
 }

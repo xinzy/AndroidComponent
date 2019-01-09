@@ -80,8 +80,8 @@ class TipsDialog private constructor(context: Context, private val mContent: Str
                 container.addView(loadingView, lp)
             }
             ICON_TYPE_FAIL, ICON_TYPE_INFO, ICON_TYPE_SUCCESS -> {
-                val resId = if (mIconType == ICON_TYPE_FAIL) R.drawable.icon_notify_error else
-                    ( if (mIconType == ICON_TYPE_INFO) R.drawable.icon_notify_error else R.drawable.icon_notify_success )
+                val resId = if (mIconType == ICON_TYPE_FAIL) R.drawable.c_icon_notify_error else
+                    ( if (mIconType == ICON_TYPE_INFO) R.drawable.c_icon_notify_error else R.drawable.c_icon_notify_success )
                 val imageView = ImageView(context)
                 imageView.setImageResource(resId)
                 imageView.setBackgroundColor(0)

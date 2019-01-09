@@ -30,7 +30,6 @@ class RadiusImageViewActivity : AppCompatActivity() {
 
         image.setImageDrawable(drawable)
 
-//        image.viewTreeObserver.add
     }
 
     private fun setBitmap() {

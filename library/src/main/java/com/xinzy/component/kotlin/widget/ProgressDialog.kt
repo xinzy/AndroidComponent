@@ -8,14 +8,14 @@ import android.view.Window
 import android.view.animation.Animation
 import android.view.animation.RotateAnimation
 import com.xinzy.component.R
-import kotlinx.android.synthetic.main.dialog_progress.*
+import kotlinx.android.synthetic.main.c_dialog_progress.*
 
 class ProgressDialog(context: Context) : Dialog(context) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
-        setContentView(R.layout.dialog_progress)
+        setContentView(R.layout.c_dialog_progress)
 
         this.window?.setBackgroundDrawable(ColorDrawable(0))
         setCanceledOnTouchOutside(false)

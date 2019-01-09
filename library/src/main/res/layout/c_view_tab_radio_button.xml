@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:textColor="@drawable/color_tab_text"
+        android:textColor="@drawable/c_color_tab_text"
         android:textSize="14sp"
         tools:text="这是Tab1" />
 
@@ -20,6 +20,6 @@
         android:layout_height="2dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/sel_tab_bg" />
+        android:background="@drawable/c_sel_tab_bg" />
 
 </RelativeLayout>

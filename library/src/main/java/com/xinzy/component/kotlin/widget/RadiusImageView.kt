@@ -10,11 +10,10 @@ import com.xinzy.component.R
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffXfermode
 import android.os.Build
-import com.xinzy.component.R.attr.size
-import com.xinzy.component.kotlin.widget.util.isBottomLeft
-import com.xinzy.component.kotlin.widget.util.isBottomRight
-import com.xinzy.component.kotlin.widget.util.isTopLeft
-import com.xinzy.component.kotlin.widget.util.isTopRight
+import com.xinzy.component.util.isBottomLeft
+import com.xinzy.component.util.isBottomRight
+import com.xinzy.component.util.isTopLeft
+import com.xinzy.component.util.isTopRight
 
 
 class RadiusImageView : AppCompatImageView {

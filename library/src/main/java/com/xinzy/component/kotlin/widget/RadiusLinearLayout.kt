@@ -6,10 +6,10 @@ import android.support.v4.view.ViewCompat
 import android.util.AttributeSet
 import android.widget.LinearLayout
 import com.xinzy.component.R
-import com.xinzy.component.kotlin.widget.util.isBottomLeft
-import com.xinzy.component.kotlin.widget.util.isBottomRight
-import com.xinzy.component.kotlin.widget.util.isTopLeft
-import com.xinzy.component.kotlin.widget.util.isTopRight
+import com.xinzy.component.util.isBottomLeft
+import com.xinzy.component.util.isBottomRight
+import com.xinzy.component.util.isTopLeft
+import com.xinzy.component.util.isTopRight
 
 class RadiusLinearLayout : LinearLayout {
     constructor(context: Context) : this(context, null)

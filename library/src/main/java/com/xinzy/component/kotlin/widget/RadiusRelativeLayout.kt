@@ -4,13 +4,12 @@ import android.content.Context
 import android.graphics.drawable.GradientDrawable
 import android.support.v4.view.ViewCompat
 import android.util.AttributeSet
-import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import com.xinzy.component.R
-import com.xinzy.component.kotlin.widget.util.isBottomLeft
-import com.xinzy.component.kotlin.widget.util.isBottomRight
-import com.xinzy.component.kotlin.widget.util.isTopLeft
-import com.xinzy.component.kotlin.widget.util.isTopRight
+import com.xinzy.component.util.isBottomLeft
+import com.xinzy.component.util.isBottomRight
+import com.xinzy.component.util.isTopLeft
+import com.xinzy.component.util.isTopRight
 
 class RadiusRelativeLayout : RelativeLayout {
     constructor(context: Context) : this(context, null)

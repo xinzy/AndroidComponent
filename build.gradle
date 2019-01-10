@@ -25,3 +25,23 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+
+ext {
+    android = [
+            compileSdkVersion: 28,
+            buildToolsVersion: '28.0.3',
+            minSdkVersion: 19,
+            targetSdkVersion: 28,
+            androidSupport: '28.0.0',
+    ]
+
+    dependencies = [
+            kotlin: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
+
+            // Android
+            supportAppcompat: "com.android.support:appcompat-v7:${android.androidSupport}",
+            supportDesign: "com.android.support:design:${android.androidSupport}",
+            constraintLayout: 'com.android.support.constraint:constraint-layout:1.1.3',
+    ]
+}

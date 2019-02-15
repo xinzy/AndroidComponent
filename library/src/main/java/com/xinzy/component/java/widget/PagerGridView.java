@@ -1,7 +1,5 @@
 package com.xinzy.component.java.widget;
 
-import android.animation.Animator;
-import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.database.DataSetObserver;
@@ -12,12 +10,12 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.LinearInterpolator;
 import android.widget.ListAdapter;
+import android.widget.Scroller;
 
 import com.xinzy.component.R;
 
-public class PagerGridView extends ViewGroup implements Animator.AnimatorListener, ValueAnimator.AnimatorUpdateListener, GestureDetector.OnGestureListener {
+public class PagerGridView extends ViewGroup implements GestureDetector.OnGestureListener {
     private static final String TAG = "PagerGridView";
     private static final boolean DEBUG = true;
 
@@ -41,11 +39,11 @@ public class PagerGridView extends ViewGroup implements Animator.AnimatorListene
 
     private int mCurrentPage = 0;
     private int mScrollDistance;
-    private boolean isFling;
 
     private int mScrollState = SCROLL_STATE_IDLE;
 
     private GestureDetector mGestureDetector;
+    private Scroller mScroller;
 
     private OnItemClickListener mOnItemClickListener;
     private OnItemLongClickListener mOnItemLongClickListener;
@@ -68,6 +66,7 @@ public class PagerGridView extends ViewGroup implements Animator.AnimatorListene
     }
 
     private void init(Context context, AttributeSet attrs) {
+        mScroller = new Scroller(context);
         mGestureDetector = new GestureDetector(context, this);
 
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.PagerGridView);
@@ -207,12 +206,6 @@ public class PagerGridView extends ViewGroup implements Animator.AnimatorListene
         return false;
     }
 
-    @Override
-    public void onAnimationUpdate(ValueAnimator animation) {
-        int value = (int) animation.getAnimatedValue();
-        scrollTo(value, 0);
-    }
-
     private int currentPageRows(int page) {
         if (page == getPageSize() - 1) {
             int itemCount = getChildCount() - mColumnNumber * mRowNumber * page;
@@ -308,23 +301,29 @@ public class PagerGridView extends ViewGroup implements Animator.AnimatorListene
 
     public void smoothScrollToPage(int page) {
         if (page < 0 || page >= getPageSize()) return;
-        isFling = true;
         mCurrentPage = page;
 
         int scrollX = getScrollX();
         int destX = page * mItemPageWidth;
         debug("smoothScrollToPage; scrollX=" + scrollX +"; destX=" + destX);
 
-        int delta = Math.abs(destX - scrollX);
-        long duration = delta >= mItemPageWidth ? 300 : (long) (delta * 300f / mItemPageWidth);
+        mScroller.startScroll(scrollX, 0, destX - scrollX, 0);
+        invalidate();
+    }
 
-        ValueAnimator animator = ValueAnimator.ofInt(scrollX, destX);
-
-        animator.setDuration(duration);
-        animator.setInterpolator(new LinearInterpolator());
-        animator.addUpdateListener(this);
-        animator.addListener(this);
-        animator.start();
+    @Override
+    public void computeScroll() {
+        if (mScroller.computeScrollOffset()) {
+            debug("computeScroll offset");
+            scrollTo(mScroller.getCurrX(), mScroller.getCurrY());
+            invalidate();
+        } else {
+            debug("computeScroll end");
+            onStateChange(SCROLL_STATE_IDLE);
+            if (mOnPageChangeListener != null) {
+                mOnPageChangeListener.onPageSelected(mCurrentPage);
+            }
+        }
     }
 
     private void debug(String msg) {
@@ -337,7 +336,7 @@ public class PagerGridView extends ViewGroup implements Animator.AnimatorListene
     public boolean onDown(MotionEvent e) {
         mScrollDistance = 0;
         debug("onDown");
-        return !isFling;
+        return !mScroller.computeScrollOffset();
     }
 
     @Override
@@ -435,30 +434,6 @@ public class PagerGridView extends ViewGroup implements Animator.AnimatorListene
         }
         return false;
     }
-
-    @Override
-    public void onAnimationStart(Animator animation) { }
-
-    @Override
-    public void onAnimationEnd(Animator animation) {
-        isFling = false;
-        onStateChange(SCROLL_STATE_IDLE);
-        if (mOnPageChangeListener != null) {
-            mOnPageChangeListener.onPageSelected(mCurrentPage);
-        }
-    }
-
-    @Override
-    public void onAnimationCancel(Animator animation) { }
-
-    @Override
-    public void onAnimationRepeat(Animator animation) { }
-
-
-
-
-
-
 
     private class AdapterDataSetObserver extends DataSetObserver {
         @Override
